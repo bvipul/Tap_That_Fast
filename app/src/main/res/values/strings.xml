@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Tap That Fast</string>
+    <string name="action_settings">Settings</string>
+    <string name="tap_text_view">Tap That Fast</string>
+    <string name="no_of_taps_text_view">Enter the Number of Taps</string>
+    <string name="enter_game_button">Enter the Game</string>
+    <string name="user_name_2_text_view">Enter User Name no. 2</string>
+    <string name="user_name_1_text_view">Enter User Name no. 1</string>
+</resources>
