@@ -7,7 +7,6 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * Created by admin on 04-02-2016.
@@ -124,11 +123,12 @@ public class MainGameScreen extends Activity {
         blueButton.setText(String.valueOf(i));
         if(i==numberOfTap)
         {
+            blueButton.setText("WIN("+i+")");
+            blueButton.setTextSize(40);
+            redButton.setText("LOSE(" + j + ")");
+            redButton.setTextSize(40);
             blueButton.setEnabled(false);
             redButton.setEnabled(false);
-            Toast.makeText(getApplicationContext(),vipul.toUpperCase()+" WINS",Toast.LENGTH_LONG).show();
-            blueTextView.setText("YOU WiN");
-            redTextView.setText("YOU LOSE");
         }
 
     }
@@ -138,11 +138,12 @@ public class MainGameScreen extends Activity {
         redButton.setText(String.valueOf(j));
         if(j==numberOfTap)
         {
+            blueButton.setText("LOSE("+i+")");
+            blueButton.setTextSize(40);
+            redButton.setText("WIN("+j+")");
+            redButton.setTextSize(40);
             blueButton.setEnabled(false);
             redButton.setEnabled(false);
-            Toast.makeText(getApplicationContext(),sunny.toUpperCase()+" WINS",Toast.LENGTH_LONG).show();
-            blueTextView.setText("YOU LOSE");
-            redTextView.setText("YOU WIN");
         }
     }
 
