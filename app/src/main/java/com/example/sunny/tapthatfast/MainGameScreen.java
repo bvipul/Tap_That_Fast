@@ -3,6 +3,7 @@ package com.example.sunny.tapthatfast;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -31,8 +32,9 @@ public class MainGameScreen extends Activity {
         Intent fromGame = getIntent();
         sunny = fromGame.getExtras().getString("uone");
         vipul = fromGame.getExtras().getString("utwo");
-        blueButton.setText(vipul);
-        redButton.setText(sunny);
+        blueTextView.setText(vipul.toUpperCase());
+        redTextView.setText(sunny.toUpperCase());
+
         /*TimerTask countdownTask = new TimerTask() {
             @Override
             public void run() {
@@ -77,6 +79,39 @@ public class MainGameScreen extends Activity {
             }
         };
         timer.start();*/
+        countdownTimer();
+
+
+    }
+    public void countdownTimer()
+    {
+        new CountDownTimer(4000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                if((millisUntilFinished/1000)<=3) {
+                    blueButton.setEnabled(false);
+                    redButton.setEnabled(false);
+                    blueButton.setText(String.valueOf(millisUntilFinished / 1000));
+                    blueButton.setTextSize(b);
+                    redButton.setText(String.valueOf(millisUntilFinished / 1000));
+                    redButton.setTextSize(b);
+                    a--;
+                    b+=20;
+                }
+
+                //here you can have your logic to set text to edittext
+
+            }
+
+            @Override
+            public void onFinish() {
+                blueButton.setText("GO");
+                redButton.setText("GO");
+                blueButton.setEnabled(true);
+                redButton.setEnabled(true);
+            }
+
+        }.start();
     }
 
     public void onClickBlueButton(View view) {
@@ -112,13 +147,13 @@ public class MainGameScreen extends Activity {
     }
 
     public void resetFunction(View view) {
-        redTextView.setText("RED_SIDE");
-        blueTextView.setText("BLUE_SIDE");
+        countdownTimer();
         blueButton.setText(vipul);
         redButton.setText(sunny);
         //redButton.setText("0");
         //blueButton.setText("0");
         i=j=0;
+        a=3;b=40;
         blueButton.setEnabled(true);
         redButton.setEnabled(true);
     }
