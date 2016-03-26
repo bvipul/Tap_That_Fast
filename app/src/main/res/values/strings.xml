@@ -6,4 +6,5 @@
     <string name="enter_game_button">Enter the Game</string>
     <string name="user_name_2_text_view">Enter User Name no. 2</string>
     <string name="user_name_1_text_view">Enter User Name no. 1</string>
+    <string name="title_activity_winner">Winner</string>
 </resources>

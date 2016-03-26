@@ -1,16 +1,15 @@
 package com.example.sunny.tapthatfast;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-/**
- * Created by admin on 04-02-2016.
- */
 public class MainGameScreen extends Activity {
     protected int i=0,j=0,a,b;
     public Button blueButton,redButton;
@@ -18,6 +17,7 @@ public class MainGameScreen extends Activity {
     protected TextView blueTextView,redTextView;
     String sunny,vipul;
     Intent fromGameMenu;
+    protected Intent winnerOfGame;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,55 +33,12 @@ public class MainGameScreen extends Activity {
         vipul = fromGame.getExtras().getString("utwo");
         blueTextView.setText(vipul.toUpperCase());
         redTextView.setText(sunny.toUpperCase());
-
-        /*TimerTask countdownTask = new TimerTask() {
-            @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if(a==1)
-                        {
-                        }
-                        blueButton.setText(String.valueOf(a));
-                        blueButton.setTextSize(b);
-                        redButton.setText(String.valueOf(a));
-                        redButton.setTextSize(b);
-                        a--;
-                        b+=20;
-                    }
-                });
-            }
-        };
-
-
-        Timer countdown = new Timer();
-        countdown.schedule(countdownTask, 0, 1000);*/
-        /*Thread timer = new Thread(){
-            public void run(){
-                for(int z=0;z<3;z++)
-                {
-                    try{
-                        sleep(1000);
-                    }catch(InterruptedException e){
-                        e.printStackTrace();
-                    }finally{
-                        blueButton.setText(String.valueOf(a));
-                        blueButton.setTextSize(b);
-                        redButton.setText(String.valueOf(a));
-                        redButton.setTextSize(b);
-                        a--;
-                        b+=20;
-                    }
-                }
-
-            }
-        };
-        timer.start();*/
         countdownTimer();
-
-
     }
+
+
+
+
     public void countdownTimer()
     {
         new CountDownTimer(4000, 1000) {
@@ -112,6 +69,16 @@ public class MainGameScreen extends Activity {
 
         }.start();
     }
+    public void dialogForWinner(String winner,String colr)
+    {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.activity_winner);
+        TextView win = (TextView) dialog.findViewById(R.id.winnerPlaceHolder);
+        win.setText(winner);
+        dialog.show();
+
+    }
+
 
     public void onClickBlueButton(View view) {
         i++;
@@ -123,7 +90,8 @@ public class MainGameScreen extends Activity {
         blueButton.setText(String.valueOf(i));
         if(i==numberOfTap)
         {
-            blueButton.setText("WIN("+i+")");
+            dialogForWinner(vipul, "RED");
+            blueButton.setText("WIN(" + i + ")");
             blueButton.setTextSize(40);
             redButton.setText("LOSE(" + j + ")");
             redButton.setTextSize(40);
@@ -138,9 +106,10 @@ public class MainGameScreen extends Activity {
         redButton.setText(String.valueOf(j));
         if(j==numberOfTap)
         {
-            blueButton.setText("LOSE("+i+")");
+            dialogForWinner(sunny,"BLUE");
+            blueButton.setText("LOSE(" + i + ")");
             blueButton.setTextSize(40);
-            redButton.setText("WIN("+j+")");
+            redButton.setText("WIN(" + j + ")");
             redButton.setTextSize(40);
             blueButton.setEnabled(false);
             redButton.setEnabled(false);
@@ -158,4 +127,5 @@ public class MainGameScreen extends Activity {
         blueButton.setEnabled(true);
         redButton.setEnabled(true);
     }
+
 }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_weight="3"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:background="@android:color/holo_red_light"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="The Winner is:"
+        android:background="#bdc3c7"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:id="@+id/theWinnerButton"
+        android:layout_weight="0.5"
+        android:padding="10dp"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:textSize="20sp"
+        android:text="vipul"
+        android:textAllCaps="true"
+        android:textAlignment="center"
+        android:id="@+id/winnerPlaceHolder"
+        android:layout_weight="2"
+        android:textColor="#ffffff"
+        android:padding="20dp"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="Share"
+            android:id="@+id/theShareButton"
+            android:textColor="#3498db"
+            android:background="#bdc3c7"
+            android:textSize="20sp"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="RESET"
+            android:id="@+id/theResetButton"
+            android:onClick="resetFunction"
+            android:textColor="#3498db"
+            android:background="#bdc3c7"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
+
+</LinearLayout>

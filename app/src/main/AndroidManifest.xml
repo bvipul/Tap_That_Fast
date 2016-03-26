@@ -17,12 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainGame"
-            android:label="Main Game"
-            >
-        </activity>
-        <activity android:name=".MainGameScreen"
-            android:label="Main Game Screen"></activity>
+        <activity
+            android:name=".MainGame"
+            android:label="Main Game" />
+        <activity
+            android:name=".MainGameScreen"
+            android:label="Main Game Screen" />
     </application>
 
 </manifest>
